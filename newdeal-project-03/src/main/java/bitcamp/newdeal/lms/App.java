@@ -56,7 +56,7 @@ public class App {
 
     for (int i = 0; i < len; i++) {
       System.out.printf("%d, %s, %s ~ %s, %d\n ",
-          no[i], title[i], contents[i], startDate[i], endDate[i], totalHours[i]);
+          no[i], title[i], startDate[i], endDate[i], totalHours[i]);
       
     }
 
