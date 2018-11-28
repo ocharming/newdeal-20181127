@@ -1,0 +1,29 @@
+﻿1. open jdk 설치
+   - JAVA_HOME 환경 변수 설정
+   - PATH 환경변수 설정 JDK/bin 폴더 추가 
+2. VisualStudio Code
+3. git client 
+4. 이클립스 설치
+ - java11 버전을 지원하는 플러그인 설치 : 마켓에서 java11 검색 설치 
+ - general / workspace 
+ - java / code style / formatter /  xml import 
+구글에 google java code style 다운로드 및 적용
+- java 
+  - installed JREs : jdk11 추가 및 선택 
+  - compiler : java11 선택
+
+5. Tomcat 설치 
+* Eclipse/preferences/server/Runtime Environments: 톰캣 서버 등록 
+6. Scoop 패키지 관리자 설치 / mac은 homebrew 설치 
+window7 에서는 powershell 3.0 으로 업뎃 
+
+7. Gradle 설치
+* 환경 변수 PATH에 gradle/bin 폴더 추가.
+8. MariaDB 설치
+* 설치시 root 암호 비번 쉽게
+* UTF-8 설정 채크 
+* 환경변수   PATH에 mariadb/bin 폴더 추가.
+
+* 
+8. github.com에 저장소 준비
+* 
