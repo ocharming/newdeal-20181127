@@ -4,4 +4,6 @@
 
 ## 02 : 리터럴(literal), 변수, 키보드 입력사용 
 
+## 클래스의 용도 
+
 - github.com/eomcs/eomcs-java-project에서 v1.3 과제 해결 
