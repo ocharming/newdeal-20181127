@@ -5,17 +5,16 @@ import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
 public class BoardDeleteCommand implements Command {
-
+  
   Scanner keyboard;
   List<Board> list;
-
+  
   public BoardDeleteCommand(Scanner keyboard, List<Board> list) {
     this.keyboard = keyboard;
     this.list = list;
   }
-
+  
   public void execute() {
-    
     System.out.print("번호? ");
     int no = Integer.parseInt(keyboard.nextLine());
 
@@ -38,5 +37,4 @@ public class BoardDeleteCommand implements Command {
     }
     return -1;
   }
-
 }

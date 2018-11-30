@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
 public class BoardListCommand implements Command {
-
+  
   Scanner keyboard;
   List<Board> list;
   
@@ -22,5 +22,4 @@ public class BoardListCommand implements Command {
           board.getCreatedDate(), board.getViewCount());
     }
   }
-  
 }
