@@ -42,8 +42,7 @@
 
 - github.com/eomcs/eomcs-java-project 에서 v2.3, v2.4 과제 해결
 
-## 2018/11/30 금요일
-## 25 : 데이터 처리 코드를 별도의 클래스로 분리
+## 25 : 데이터 처리 코드를 별도의 클래스로 분리         2018/11/30 금요일 
 
 - github.com/eomcs/eomcs-java-project 에서 v2.5 과제 해결
 
