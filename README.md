@@ -60,12 +60,12 @@
 - github.com/eomcs/eomcs-java-project 에서 v3.4, v3.5, v3.6 과제 해결
 
 
-### 45 : DBMS와 JDBC 프로그래밍
+## 45 : DBMS와 JDBC 프로그래밍
 
 - github.com/eomcs/eomcs-java-project v4.5 과제 해결
 
-
-## 46 : DAO 도입
+## 2018-12-04
+### 46 : DAO 도입
 
 - github.com/eomcs/eomcs-java-project v4.5 과제 해결
 
@@ -75,6 +75,11 @@
 ## 48 : SQL 삽입 해킹과 자바 보안
 - SQL 삽입 공격을 이해하고 그 공격을 막아라!
 - Statement의 createStatement() 대신 PreparedStatement()를 사용하라.
+
+## 49 : MyBatis 도입
+
+- 자바 소스에서 SQL를 분리하라!
+- JDBC 코드를 캡슐화한 MyBatis로 대체하라! 
 
 
 

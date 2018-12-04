@@ -29,11 +29,12 @@
 ### SqlSessionFactory 인스턴스를 생성
 
 - `App` 클래스에서 MyBatis의 SqlSessionFactory 객체를 준비한다.
-`
+```
 String resource = "org/mybatis/example/mybatis-config.xml";
 InputStream inputStream = Resources.getResourceAsStream(resource);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-`
+```
 - DAO 객체가 사용할 수 있게 생성자에 주입해준다. 
+- 조립하는 빌더패턴, 팩토리패턴 두가지 디자인 패턴이 들어가 있다. 
 
 ### DAO에 적용

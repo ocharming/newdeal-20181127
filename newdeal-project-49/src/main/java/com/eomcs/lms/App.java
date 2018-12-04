@@ -40,7 +40,7 @@ public class App {
         new SqlSessionFactoryBuilder().build(inputStream);
     
     BoardDao boardDao = new MariaDBBoardDao(sqlSessionFactory);
-    MemberDao memberDao = new MariaDBMemberDao();
+    MemberDao memberDao = new MariaDBMemberDao(sqlSessionFactory);
     
     HashMap<String,Command> commandMap = new HashMap<>();
 
