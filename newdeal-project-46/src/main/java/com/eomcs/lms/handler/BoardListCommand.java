@@ -33,11 +33,6 @@ public class BoardListCommand implements Command {
       }
     } catch (Exception e) {
         e.printStackTrace();
-    } finally {
-//      try {rs.close();} catch (Exception e) {}
-//      try {stmt.close();} catch (Exception e) {}
-//      try {con.close();} catch (Exception e) {}
-      
     }
   }
 }

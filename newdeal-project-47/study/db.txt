@@ -1,0 +1,2 @@
+- exerd import 
+- data.sql , ddl.sql 쿼리 실행

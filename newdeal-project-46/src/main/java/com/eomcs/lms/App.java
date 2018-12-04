@@ -1,5 +1,4 @@
 package com.eomcs.lms;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -7,7 +6,6 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 import com.eomcs.lms.dao.BoardDao;
-import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.handler.BoardAddCommand;
 import com.eomcs.lms.handler.BoardDeleteCommand;
 import com.eomcs.lms.handler.BoardDetailCommand;
@@ -35,13 +33,13 @@ public class App {
     commandMap.put("/board/list", 
         new BoardListCommand(keyboard, boardDao));
     commandMap.put("/board/detail", 
-        new BoardDetailCommand(keyboard));
+        new BoardDetailCommand(keyboard, boardDao));
     commandMap.put("/board/add", 
-        new BoardAddCommand(keyboard));
+        new BoardAddCommand(keyboard, boardDao));
     commandMap.put("/board/update", 
-        new BoardUpdateCommand(keyboard));
+        new BoardUpdateCommand(keyboard, boardDao));
     commandMap.put("/board/delete", 
-        new BoardDeleteCommand(keyboard));
+        new BoardDeleteCommand(keyboard, boardDao));
     commandMap.put("hello", new HelloCommand(keyboard));
     
     while (true) {

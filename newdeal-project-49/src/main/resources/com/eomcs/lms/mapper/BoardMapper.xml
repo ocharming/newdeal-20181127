@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDao">
+
+  <select id="findAll" resultType="com.eomcs.lms.domain.Board">
+    select bno as no, cont as contents, 
+    cdt as createDate, view as viewCount from board
+  </select>
+  
+  <select id="findByNo" 
+          resultType="com.eomcs.lms.domain.Board"
+          parameterType="int">
+    select bno no, cont contents, cdt createDate, 
+    view viewCount, mno writerNo, lno lessonNo
+    from board where bno=#{value}
+  </select>
+  
+  <insert id="insert" parameterType="com.eomcs.lms.domain.Board">
+    insert into board(cont, mno, lno) 
+    values(#{contents},#{writerNo},#{lessonNo})  
+  </insert>
+  
+  <update id="update" parameterType="com.eomcs.lms.domain.Board">
+    update board set 
+      cont=#{contents} 
+    where bno=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from board 
+    where bno=#{value}
+  </delete>
+  
+</mapper>
+
+
+
+
+
