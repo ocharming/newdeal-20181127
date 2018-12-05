@@ -1,9 +1,11 @@
 package com.eomcs.lms.handler;
 
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.domain.Board;
 
+@Component("/board/add")
 public class BoardAddCommand implements Command {
 
   Scanner keyboard;

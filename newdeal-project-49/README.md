@@ -11,7 +11,7 @@
 
 ### MyBatis 설정 파일 추가
 
-- mybatis.org Github Project 문서를 참고하여 `mybatis-comfing.xml` 파일을 작성한다.
+- mybatis.org Github Project 문서를 참고하여 `mybatis-confing.xml` 파일을 작성한다.
 - jdbc.properties 파일을 작성한다. 
     - DBMS 연결 정보를 둔다.
     - MyBatis 설정 파일에서 참고할 것이다. 
