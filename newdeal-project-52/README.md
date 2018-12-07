@@ -33,3 +33,20 @@
     - `Servers` 뷰에 톰캣 테스트 환경을 추가한다.
     - 웹 프로젝트를 테스트 환경에 추가한다.    
 
+### JSTL 환경 구축
+
+- JSTL 구현 라이브러리를 가져온다.
+    - mvnrepository.com에서 `jstl` 로 검색한다.
+
+### MVC 아키텍처 적용
+
+### HttpSession을 이용한 로그인/로그아웃
+
+### Filter를 이용하여 서블릿을 실행하기 전에 특정 작업을 수행한다.
+
+### MyBatis 고급 Result Maps 다루기
+
+### MyBatis DAO 구현체 자동 생성하기 
+
+- AppConfig.java
+    - @MapperScan 애노테이션 사용하여 DAO 인터페이스 구현체를 자동생성한다.
