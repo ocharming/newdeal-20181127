@@ -2,10 +2,9 @@ package com.eomcs.lms.web;
 
 import java.util.List;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.dao.LessonDao;
@@ -25,19 +24,12 @@ public class BoardController {
   }
 
   @RequestMapping("add")
-  public String add(
-      HttpServletRequest request, HttpServletResponse response)
+  public String add(Board board,HttpSession session)
           throws Exception {
 
-    Board board = new Board();
-    board.setContents(request.getParameter("contents"));
-
     Member loginUser = 
-        (Member) request.getSession().getAttribute("loginUser");
+        (Member) session.getAttribute("loginUser");
     board.setWriterNo(loginUser.getNo());
-
-    board.setLessonNo(Integer.parseInt(
-        request.getParameter("lessonNo")));
 
     boardDao.insert(board);
 
@@ -45,67 +37,45 @@ public class BoardController {
   }
   
   @RequestMapping("delete")
-  public String delete(
-      HttpServletRequest request, HttpServletResponse response)
-          throws Exception {
+  public String delete(int no, Model model) throws Exception {
 
-      int no = Integer.parseInt(request.getParameter("no"));
-      request.setAttribute("count", boardDao.delete(no));
-      response.setContentType("text/html;charset=UTF-8");
+      model.addAttribute("count", boardDao.delete(no));
       
       return "board/delete";
   }
   
   @RequestMapping("detail")
-  public String detail(
-      HttpServletRequest request, HttpServletResponse response)
-      throws Exception {
+  public String detail(int no, Model model) throws Exception {
       
-    int no = Integer.parseInt(request.getParameter("no"));
       Board board = boardDao.findByNo(no);
-      request.setAttribute("board", board);
+      model.addAttribute("board", board);
       
-      response.setContentType("text/html;charset=UTF-8");
       return "board/detail";
   }
   
   @RequestMapping("form")
-  public String form(
-      HttpServletRequest request, HttpServletResponse response)
-      throws Exception {
+  public String form(HttpSession session, Model model) throws Exception {
     
-    HttpSession session = request.getSession();
     Member loginUser = (Member) session.getAttribute("loginUser");
     
     List<Map<String,Object>> lessons = 
         lessonDao.findByParticipantNo(loginUser.getNo());
-    request.setAttribute("lessons", lessons);
-    
-    response.setContentType("text/html;charset=UTF-8");
+    model.addAttribute("lessons", lessons);
     
     return "board/form";
   }
   
   @RequestMapping("list")
-  public void list(
-      HttpServletRequest request, HttpServletResponse response)
-      throws Exception {
+  public String list(Model model) throws Exception {
 
     List<Board> list = boardDao.findAll();
-    request.setAttribute("list", list);
-    response.setContentType("text/html;charset=UTF-8");
+    model.addAttribute("list", list);
 
-//    return "board/list";
+    return "board/list";
   }
   
   @RequestMapping("update")
-  public String update(
-      HttpServletRequest request, HttpServletResponse response)
-          throws Exception {
-
-    Board board = new Board();
-    board.setNo(Integer.parseInt(request.getParameter("no")));
-    board.setContents(request.getParameter("contents"));
+  public String update(Board board) throws Exception {
 
     boardDao.update(board);
 

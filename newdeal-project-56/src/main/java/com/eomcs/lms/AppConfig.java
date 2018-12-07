@@ -8,7 +8,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -16,10 +16,19 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+// AnnotationConfigWebApplicationContext iocContainer = 
+//         new AnnotationConfigWebApplicationContext();
+// iocContainer.register(AppConfig.class);
+// IoC 컨테이너를 생성할때 AppConfig를 직접 지정한다면 다음 애노테이션은 필요 없다.
+// 그러나 XML 설정을 사용할 경우 @Configuration 붙여야만 IoC컨테이너가 
+// 이 클래스가 스프링 설정 정보를 다루는 클래스임을 인식 할 수 있다. 
+@Configuration
+
 // Spring IoC 컨테이너에게 패키지 이름을 알려주면 
 // 그 패키지를 뒤져서 @Component가 붙은 클래스에 대해 
 // 인스턴스를 자동으로 생성해준다.
-@ComponentScan("com.eomcs.lms")
+// => xml 설정에 추가되어 있다면 ComponentScan 제거한다.
+//@ComponentScan("com.eomcs.lms")
 
 // Spring IoC 컨테이너에게 프로퍼티 파일을 로딩할 것을 명령한다.
 @PropertySource("classpath:/com/eomcs/lms/conf/jdbc.properties")

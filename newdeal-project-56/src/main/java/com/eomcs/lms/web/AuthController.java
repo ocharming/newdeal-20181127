@@ -1,8 +1,6 @@
 package com.eomcs.lms.web;
 
 import java.util.HashMap;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,17 +18,14 @@ public class AuthController {
   }
 
   @RequestMapping("login")
-  public String login(
-      HttpServletRequest request, HttpServletResponse response)
-          throws Exception {
+  public String login(String email, String password, 
+      HttpSession session) throws Exception {
 
     HashMap<String,Object> params = new HashMap<>();
-    params.put("email", request.getParameter("email"));
-    params.put("password", request.getParameter("password"));
+    params.put("email", email);
+    params.put("password", password);
 
     Member member = memberDao.findByEmailPassword(params);
-
-    HttpSession session = request.getSession();
 
     if (member != null) {
       session.setAttribute("loginUser", member);
@@ -39,25 +34,18 @@ public class AuthController {
       session.invalidate();
       return "redirect:form";
     }
-
   }
   
   @RequestMapping("form")
-  public String form(
-      HttpServletRequest request, HttpServletResponse response)
-          throws Exception {
+  public String form() throws Exception {
     
-    response.setContentType("text/html;charset=UTF-8");
-
-    return "/auth/form.jsp";
+    return "auth/form";
   }
   
   @RequestMapping("logout")
-  public String logout(
-      HttpServletRequest request, HttpServletResponse response)
-          throws Exception {
+  public String logout(HttpSession session) throws Exception {
     
-    request.getSession().invalidate();
+    session.invalidate();
     
     return "redirect:login";
   }
